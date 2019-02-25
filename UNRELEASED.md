@@ -13,6 +13,7 @@ Use [the changelog guidelines](https://git.io/polaris-changelog-guidelines) to f
 ### Enhancements
 
 - Track Polaris version information in App Bridge actions
+- Polaris now uses SVGR to import SVGs ([#1042](https://github.com/Shopify/polaris-react/pull/1042))
 
 ### Bug fixes
 
@@ -29,4 +30,9 @@ Use [the changelog guidelines](https://git.io/polaris-changelog-guidelines) to f
 
 ### Code quality
 
+- Banner, DropZone and ResourceList's icons were moved to polaris-icons ([#1042](https://github.com/Shopify/polaris-react/pull/1042))
+
 ### Deprecations
+
+- Passing a React Element into the Icon component is now deprecated ([#1042](https://github.com/Shopify/polaris-react/pull/1042))
+- The untrusted prop in the Icon component is now deprecated ([#1042](https://github.com/Shopify/polaris-react/pull/1042))
