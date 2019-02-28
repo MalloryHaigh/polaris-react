@@ -15,24 +15,23 @@ describe('<Checkbox />', () => {
   });
 
   describe('onChange()', () => {
-    it('is called with the new checked value of the input on change', () => {
+    it('is called with the updated checked value of the input on click', () => {
       const spy = jest.fn();
       const element = mountWithAppProvider(
         <Checkbox id="MyCheckbox" label="Checkbox" onChange={spy} />,
       );
       (element.find('input') as any).instance().checked = true;
-      element.find('input').simulate('change');
-      expect(spy).toHaveBeenCalledWith(true, 'MyCheckbox');
+      element.simulate('click');
+      expect(spy).toHaveBeenCalledWith(false, 'MyCheckbox');
     });
 
     it('sets focus on the input when checkbox is toggled off', () => {
-      const input = mountWithAppProvider(
+      const checkbox = mountWithAppProvider(
         <Checkbox checked id="checkboxId" label="Checkbox" onChange={noop} />,
-      ).find('input');
-      (input.getDOMNode() as HTMLInputElement).checked = false;
-      input.simulate('change');
-
-      expect(input.getDOMNode()).toBe(document.activeElement);
+      );
+      (checkbox.find('input') as any).instance().checked = false;
+      checkbox.simulate('click');
+      expect(checkbox.find('input').instance()).toBe(document.activeElement);
     });
   });
 

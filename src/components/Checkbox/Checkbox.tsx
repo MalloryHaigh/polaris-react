@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {classNames} from '@shopify/react-utilities/styles';
-import {createUniqueIDFactory} from '@shopify/javascript-utilities/other';
+import {createUniqueIDFactory, noop} from '@shopify/javascript-utilities/other';
 import {autobind} from '@shopify/javascript-utilities/decorators';
 
 import {withAppProvider, WithAppProviderProps} from '../AppProvider';
@@ -131,6 +131,7 @@ class Checkbox extends React.PureComponent<CombinedProps, never> {
             onFocus={onFocus}
             onBlur={onBlur}
             onClick={stopPropagation}
+            onChange={noop}
             aria-invalid={error != null}
             aria-describedby={ariaDescribedBy}
             role="checkbox"
